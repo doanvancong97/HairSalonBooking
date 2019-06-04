@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     List<SalonService> salonServiceList;
 
     private SearchView searchView;
-    private TextView txtDumb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
         searchView = (SearchView) findViewById(R.id.seachView);
         searchView.clearFocus();
 
-        txtDumb = findViewById(R.id.txt_dummy);
-        txtDumb.requestFocus();
+
         //setup sideBar
         mDrawerLayout = findViewById(R.id.drawerLayout);
         mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
@@ -100,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
 
         salonList = new ArrayList<>();
 
-        salonList.add(new Salon("Barber Shop Vũ Trí","Giảm 30% dịch vụ cắt tóc", "69 Trần Duy Hưng, HN", des1, shop2, "30%",4.7));
+        salonList.add(new Salon("Barber Shop Vũ Trí","Giảm 30% dịch vụ cắt tóc", "69 Trần Duy Hưng, HN", des1, shop2, "30%",4.9));
         salonList.add(new Salon("Tony Barber","Giảm 10% dịch vụ cắt tóc", "1050 Nguyễn Oanh, HCM", des1, shop3, "10%",4.8));
-        salonList.add(new Salon("Paris Hair Salon","Giảm 20% dịch vụ cắt tóc", "123 Gò Vấp, HCM", des1, shop4, "20%",4.9));
+        salonList.add(new Salon("Paris Hair Salon","Giảm 20% dịch vụ cắt tóc", "123 Gò Vấp, HCM", des1, shop4, "20%",4.7));
         salonList.add(new Salon("4RAU Barber Shop","Giảm 50% dịch vụ cắt tóc", "509 Quang Trung, HCM", des1, shop1, "50%",4.5));
 
         // recycler view for recent sale
@@ -122,19 +121,19 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewBestSalon.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerViewBestSalon.setAdapter(viewNewestAdapter);
-        salonServiceList = new ArrayList<>();
-        salonServiceList.add(new SalonService("Gần Đây", R.drawable.placeholder));
-        salonServiceList.add(new SalonService("Gội Đầu", R.drawable.hair_wash));
-        salonServiceList.add(new SalonService("Đắp mặt nạ", R.drawable.beauty1));
-        salonServiceList.add(new SalonService("Tấy tóc", R.drawable.glue));
-        salonServiceList.add(new SalonService("Kid combo", R.drawable.kid));
-        salonServiceList.add(new SalonService("Uốn cao cấp", R.drawable.hair_curl));
-        salonServiceList.add(new SalonService("Nhuộm Echosline", R.drawable.dye));
+//        salonServiceList = new ArrayList<>();
+//        salonServiceList.add(new SalonService("Gần Đây", R.drawable.placeholder));
+//        salonServiceList.add(new SalonService("Gội Đầu", R.drawable.hair_wash));
+//        salonServiceList.add(new SalonService("Đắp mặt nạ", R.drawable.beauty1));
+//        salonServiceList.add(new SalonService("Tấy tóc", R.drawable.glue));
+//        salonServiceList.add(new SalonService("Kid combo", R.drawable.kid));
+//        salonServiceList.add(new SalonService("Uốn cao cấp", R.drawable.hair_curl));
+//        salonServiceList.add(new SalonService("Nhuộm Echosline", R.drawable.dye));
         //recycler view for service
-        RecyclerView recyclerViewService = findViewById(R.id.recycler_view_service);
-        RecyclerViewServiceAdapter recyclerViewServiceAdapter = new RecyclerViewServiceAdapter(this, salonServiceList);
-        recyclerViewService.setLayoutManager(new GridLayoutManager(this, 3));
-        recyclerViewService.setAdapter(recyclerViewServiceAdapter);
+//        RecyclerView recyclerViewService = findViewById(R.id.recycler_view_service);
+//        RecyclerViewServiceAdapter recyclerViewServiceAdapter = new RecyclerViewServiceAdapter(this, salonServiceList);
+//        recyclerViewService.setLayoutManager(new GridLayoutManager(this, 3));
+//        recyclerViewService.setAdapter(recyclerViewServiceAdapter);
 
 
         //setup tab layout

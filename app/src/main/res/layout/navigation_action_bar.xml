@@ -26,7 +26,7 @@
             android:queryBackground="@color/transparent"
 
             android:queryHint="Tìm kiếm"
-            android:searchIcon="@drawable/search_iconn"
+            android:searchIcon="@drawable/icon_search"
 
 
             />
