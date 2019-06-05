@@ -11,7 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.SearchView;
+import android.widget.Toast;
+
+import com.arlib.floatingsearchview.FloatingSearchView;
+import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,7 @@ import capstone.sonnld.hairsalonbooking.model.Salon;
 import capstone.sonnld.hairsalonbooking.model.SalonService;
 import capstone.sonnld.hairsalonbooking.adapter.RecyclerViewAdapter;
 import capstone.sonnld.hairsalonbooking.adapter.RecyclerViewNewestAdapter;
+import capstone.sonnld.hairsalonbooking.model.Suggesttion;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,24 +35,66 @@ public class MainActivity extends AppCompatActivity {
     List<Salon> salonList;
     List<SalonService> salonServiceList;
 
-    private SearchView searchView;
+    private FloatingSearchView floatingSearchView;
+    private List<Suggesttion> mSuggestions = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initData();
+        final FloatingSearchView searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+
+        searchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+            @Override
+            public void onSearchTextChanged(String oldQuery, String newQuery) {
+                if (!oldQuery.equals("") && newQuery.equals("")) {
+                    searchView.clearSuggestions();
+                } else {
+                    searchView.showProgress();
+                    searchView.swapSuggestions(getSuggestion(newQuery));
+                    searchView.hideProgress();
+                }
+            }
+        });
+        searchView.setOnFocusChangeListener(new FloatingSearchView.OnFocusChangeListener() {
+            @Override
+            public void onFocus() {
+                searchView.showProgress();
+                searchView.swapSuggestions(getSuggestion(searchView.getQuery()));
+                searchView.hideProgress();
+            }
+
+            @Override
+            public void onFocusCleared() {
+
+            }
+        });
+        searchView.setOnSearchListener(new FloatingSearchView.OnSearchListener() {
+            @Override
+            public void onSuggestionClicked(SearchSuggestion searchSuggestion) {
+                Suggesttion suggestion = (Suggesttion) searchSuggestion;
+                Toast.makeText(getApplicationContext(), "Ban vua chon " + suggestion.getBody(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSearchAction(String currentQuery) {
+
+            }
+        });
+
+
+        mDrawerLayout = findViewById(R.id.drawerLayout);
+        mDrawerLayout.requestFocus();
 
         //setup tool bar
         mToolbar = findViewById(R.id.nav_action_bar);
         setSupportActionBar(mToolbar);
 
-        searchView = (SearchView) findViewById(R.id.seachView);
-        searchView.clearFocus();
-
 
         //setup sideBar
-        mDrawerLayout = findViewById(R.id.drawerLayout);
+
         mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
         mActionBarDrawerToggle.syncState();
@@ -88,10 +134,10 @@ public class MainActivity extends AppCompatActivity {
 
         salonList = new ArrayList<>();
 
-        salonList.add(new Salon("Barber Shop Vũ Trí","Giảm 30% dịch vụ cắt tóc", "69 Trần Duy Hưng, HN", des1, shop2, "30%",4.9));
-        salonList.add(new Salon("Tony Barber","Giảm 10% dịch vụ cắt tóc", "1050 Nguyễn Oanh, HCM", des1, shop3, "10%",4.8));
-        salonList.add(new Salon("Paris Hair Salon","Giảm 20% dịch vụ cắt tóc", "123 Gò Vấp, HCM", des1, shop4, "20%",4.7));
-        salonList.add(new Salon("4RAU Barber Shop","Giảm 50% dịch vụ cắt tóc", "509 Quang Trung, HCM", des1, shop1, "50%",4.5));
+        salonList.add(new Salon("Barber Shop Vũ Trí", "Giảm 30% dịch vụ cắt tóc", "69 Trần Duy Hưng, HN", des1, shop2, "30%", 4.9));
+        salonList.add(new Salon("Tony Barber", "Giảm 10% dịch vụ cắt tóc", "1050 Nguyễn Oanh, HCM", des1, shop3, "10%", 4.8));
+        salonList.add(new Salon("Paris Hair Salon", "Giảm 20% dịch vụ cắt tóc", "123 Gò Vấp, HCM", des1, shop4, "20%", 4.7));
+        salonList.add(new Salon("4RAU Barber Shop", "Giảm 50% dịch vụ cắt tóc", "509 Quang Trung, HCM", des1, shop1, "50%", 4.5));
 
         // recycler view for recent sale
         RecyclerView recyclerView = findViewById(R.id.recycler_view_salon);
@@ -172,4 +218,27 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
+
+    private void initData() {
+        mSuggestions.add(new Suggesttion("Ha Noi"));
+        mSuggestions.add(new Suggesttion("Ha nam"));
+        mSuggestions.add(new Suggesttion("Da nang"));
+        mSuggestions.add(new Suggesttion("Dong nai"));
+        mSuggestions.add(new Suggesttion("Phú Tho"));
+        mSuggestions.add(new Suggesttion("Quang ngai"));
+        mSuggestions.add(new Suggesttion("Thanh hoa"));
+        mSuggestions.add(new Suggesttion("Hue"));
+    }
+
+    private List<Suggesttion> getSuggestion(String query) {
+        List<Suggesttion> suggestions = new ArrayList<>();
+        for (Suggesttion suggestion : mSuggestions) {
+            if (suggestion.getBody().toLowerCase().contains(query.toLowerCase())) {
+                suggestions.add(suggestion);
+            }
+        }
+        return suggestions;
+    }
+
+
 }

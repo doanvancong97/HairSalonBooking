@@ -60,8 +60,8 @@ public class DetailSalonActivity extends AppCompatActivity {
 
 
         //setup tool bar
-        mToolbar = (Toolbar) findViewById(R.id.nav_action_bar);
-        setSupportActionBar(mToolbar);
+//        mToolbar = (Toolbar) findViewById(R.id.nav_action_bar);
+//        setSupportActionBar(mToolbar);
 
 
         txtPromotionName = findViewById(R.id.txt_promotion_name);

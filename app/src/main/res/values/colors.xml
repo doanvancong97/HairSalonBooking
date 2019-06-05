@@ -11,4 +11,5 @@
     <color name="fadeBlue">#81ecec</color>
     <color name="fadeWhite">#FCFEFF</color>
     <color name="black">#2d3436</color>
+    <color name="gray">#F0EFEF</color>
 </resources>
