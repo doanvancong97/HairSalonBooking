@@ -1,4 +1,4 @@
-package capstone.sonnld.hairsalonbooking.DTO;
+package capstone.sonnld.hairsalonbooking.model;
 
 public class SalonService {
     private String serviceName;

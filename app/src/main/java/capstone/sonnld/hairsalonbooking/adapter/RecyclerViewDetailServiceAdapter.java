@@ -1,4 +1,4 @@
-package capstone.sonnld.hairsalonbooking.ViewAdapter;
+package capstone.sonnld.hairsalonbooking.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import capstone.sonnld.hairsalonbooking.DTO.SalonService;
+import capstone.sonnld.hairsalonbooking.model.SalonService;
 import capstone.sonnld.hairsalonbooking.R;
 
 public class RecyclerViewDetailServiceAdapter extends RecyclerView.Adapter<RecyclerViewDetailServiceAdapter.MyViewHolder> {

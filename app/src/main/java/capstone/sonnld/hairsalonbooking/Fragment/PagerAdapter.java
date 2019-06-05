@@ -1,4 +1,4 @@
-package capstone.sonnld.hairsalonbooking.Fragment;
+package capstone.sonnld.hairsalonbooking.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

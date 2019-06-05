@@ -1,8 +1,4 @@
-package capstone.sonnld.hairsalonbooking.DTO;
-
-import android.graphics.Bitmap;
-
-import java.util.List;
+package capstone.sonnld.hairsalonbooking.model;
 
 public class Salon {
 

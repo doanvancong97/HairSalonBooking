@@ -1,12 +1,6 @@
-package capstone.sonnld.hairsalonbooking.Fragment;
+package capstone.sonnld.hairsalonbooking.fragment;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -17,23 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import capstone.sonnld.hairsalonbooking.DTO.Salon;
-import capstone.sonnld.hairsalonbooking.DTO.SalonService;
+import capstone.sonnld.hairsalonbooking.model.Salon;
+import capstone.sonnld.hairsalonbooking.model.SalonService;
 import capstone.sonnld.hairsalonbooking.R;
-import capstone.sonnld.hairsalonbooking.ViewAdapter.RecyclerViewAdapter;
-import capstone.sonnld.hairsalonbooking.ViewAdapter.RecyclerViewServiceAdapter;
+import capstone.sonnld.hairsalonbooking.adapter.RecyclerViewAdapter;
+import capstone.sonnld.hairsalonbooking.adapter.RecyclerViewServiceAdapter;
 
 
 public class TabViewSalon extends Fragment {

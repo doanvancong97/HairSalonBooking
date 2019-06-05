@@ -1,36 +1,25 @@
 package capstone.sonnld.hairsalonbooking;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import capstone.sonnld.hairsalonbooking.DTO.Salon;
-import capstone.sonnld.hairsalonbooking.DTO.SalonService;
-import capstone.sonnld.hairsalonbooking.Fragment.PagerAdapter;
-import capstone.sonnld.hairsalonbooking.Fragment.TabViewSalon;
-import capstone.sonnld.hairsalonbooking.Fragment.TabBooking;
-import capstone.sonnld.hairsalonbooking.ViewAdapter.RecyclerViewAdapter;
-import capstone.sonnld.hairsalonbooking.ViewAdapter.RecyclerViewNewestAdapter;
-import capstone.sonnld.hairsalonbooking.ViewAdapter.RecyclerViewServiceAdapter;
+import capstone.sonnld.hairsalonbooking.model.Salon;
+import capstone.sonnld.hairsalonbooking.model.SalonService;
+import capstone.sonnld.hairsalonbooking.adapter.RecyclerViewAdapter;
+import capstone.sonnld.hairsalonbooking.adapter.RecyclerViewNewestAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -4,7 +4,6 @@ package capstone.sonnld.hairsalonbooking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -18,8 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import capstone.sonnld.hairsalonbooking.DTO.SalonService;
-import capstone.sonnld.hairsalonbooking.ViewAdapter.RecyclerViewDetailServiceAdapter;
+import capstone.sonnld.hairsalonbooking.model.SalonService;
 
 public class DetailSalonActivity extends AppCompatActivity {
 
