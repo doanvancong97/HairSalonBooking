@@ -34,13 +34,13 @@
         <com.arlib.floatingsearchview.FloatingSearchView
             android:id="@+id/floating_search_view"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_weight="4"
             app:floatingSearch_dimBackground="false"
             android:backgroundTint="@color/gray"
             app:floatingSearch_showSearchKey="true"
             app:floatingSearch_leftActionMode="showSearch"
-            android:onClick="clickToRedirectToLogin"
+
 
 
 

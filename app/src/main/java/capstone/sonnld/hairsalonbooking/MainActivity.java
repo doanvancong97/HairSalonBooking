@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuggestionClicked(SearchSuggestion searchSuggestion) {
                 Suggesttion suggestion = (Suggesttion) searchSuggestion;
-                Toast.makeText(getApplicationContext(), "Ban vua chon " + suggestion.getBody(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Bạn vừa tìm " + suggestion.getBody(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -138,6 +138,10 @@ public class MainActivity extends AppCompatActivity {
         salonList.add(new Salon("Tony Barber", "Giảm 10% dịch vụ cắt tóc", "1050 Nguyễn Oanh, HCM", des1, shop3, "10%", 4.8));
         salonList.add(new Salon("Paris Hair Salon", "Giảm 20% dịch vụ cắt tóc", "123 Gò Vấp, HCM", des1, shop4, "20%", 4.7));
         salonList.add(new Salon("4RAU Barber Shop", "Giảm 50% dịch vụ cắt tóc", "509 Quang Trung, HCM", des1, shop1, "50%", 4.5));
+        salonList.add(new Salon("Barber Shop Vũ Trí", "Giảm 30% dịch vụ cắt tóc", "69 Trần Duy Hưng, HN", des1, shop2, "30%", 4.9));
+        salonList.add(new Salon("Tony Barber", "Giảm 10% dịch vụ cắt tóc", "1050 Nguyễn Oanh, HCM", des1, shop3, "10%", 4.8));
+        salonList.add(new Salon("Barber Shop Vũ Trí", "Giảm 30% dịch vụ cắt tóc", "69 Trần Duy Hưng, HN", des1, shop2, "30%", 4.9));
+        salonList.add(new Salon("Tony Barber", "Giảm 10% dịch vụ cắt tóc", "1050 Nguyễn Oanh, HCM", des1, shop3, "10%", 4.8));
 
         // recycler view for recent sale
         RecyclerView recyclerView = findViewById(R.id.recycler_view_salon);
@@ -220,14 +224,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        mSuggestions.add(new Suggesttion("Ha Noi"));
-        mSuggestions.add(new Suggesttion("Ha nam"));
-        mSuggestions.add(new Suggesttion("Da nang"));
-        mSuggestions.add(new Suggesttion("Dong nai"));
-        mSuggestions.add(new Suggesttion("Phú Tho"));
-        mSuggestions.add(new Suggesttion("Quang ngai"));
-        mSuggestions.add(new Suggesttion("Thanh hoa"));
-        mSuggestions.add(new Suggesttion("Hue"));
+        mSuggestions.add(new Suggesttion("4rau Barber "));
+        mSuggestions.add(new Suggesttion("Cắt Tóc Sài Gòn"));
+        mSuggestions.add(new Suggesttion("69Shine"));
+        mSuggestions.add(new Suggesttion("FreeStyle Salon"));
+        mSuggestions.add(new Suggesttion("Tony Hair Salon"));
+
     }
 
     private List<Suggesttion> getSuggestion(String query) {
